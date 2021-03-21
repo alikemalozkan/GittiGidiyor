@@ -24,7 +24,7 @@ public class TestCase extends BaseTest{
         try {
             Assert.assertEquals("GittiGidiyor - Türkiye'nin Öncü Alışveriş Sitesi",driver.getTitle());
         } catch (Exception e){
-            logger.error("Hatalı başlık.");
+            logger.error("wrong header");
         }
 
         logger.info("Homepage opened.");
@@ -47,8 +47,8 @@ public class TestCase extends BaseTest{
     private By enter=By.id("gg-login-enter");
     @Test
     public void test3LoggedIn() throws InterruptedException {
-        element(username).sendKeys("alivol");
-        element(password).sendKeys("116568Ali");
+        element(username).sendKeys("gittigidiyordene@gmail.com");
+        element(password).sendKeys("123456aa");
         Thread.sleep(3000);
         element(enter).click();
         logger.info("Logged in.");
@@ -78,26 +78,6 @@ public class TestCase extends BaseTest{
         searchPage.addToBasket();
         logger.info("Product added to the basket.");
 
-        String price = searchPage.getSearchPrice();
-        logger.info("Price : "+price);
     }
-    
-    //price comparison
-    private By sepet=By.cssSelector("a[class='gg-ui-btn-default padding-none']");
-    @Test
-    public void test6comparison() throws InterruptedException {
-       String price=driver.findElement(By.cssSelector("span[id='sp-price-highPrice']")).getText();
-       Thread.sleep(2000);
-       element(sepet).click();
-       Thread.sleep(2000);
-       String sepetprice=driver.findElement(By.cssSelector("div[class='total-price']")).getText();
-       Assert.assertEquals(price,sepetprice);
-       logger.info("price checked");
-    }
-    
- 
-    
-   
-
 
 }

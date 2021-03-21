@@ -18,8 +18,8 @@ public class BaseTest {
     }
     @BeforeClass
     public static void before(){
-    	//driver location .exe for windows, without extension for macos
-        System.setProperty("webdriver.chrome.driver", "/Users/Frichtone/Desktop/trendyolCases-main/TrendyolUIAutomation/src/main/resources/drivers/chromedriver");
+    	//driver location; .exe for windows, without extension for macos
+        System.setProperty("webdriver.chrome.driver", "/Users/Frichtone/Desktop/GittiGidiyor/chromedriver");
         driver=new ChromeDriver();
     }
     @AfterClass
